@@ -59,7 +59,7 @@
 	"*"
 	SF-IMAGE		"Image"     	0
 	SF-DRAWABLE		"Drawable"  	0
-	SF-ADJUSTMENT		_"Repetitions"	'(1 1 5 1 1 0 SF-SLIDER)
+	SF-ADJUSTMENT	_"Iterations"	'(1 1 5 1 1 0 SF-SLIDER)
 	SF-TOGGLE		_"Brighten"	FALSE
 )
 

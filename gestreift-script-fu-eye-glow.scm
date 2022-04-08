@@ -3,6 +3,7 @@
 (define (gestreift-script-fu-eye-glow
 		theImage
 		baseLayer
+		preset
 	)
 
 	; the process should be undone with a single undo
@@ -13,10 +14,21 @@
 
 	(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_equalize_local_histograms 75,2,4,100,8,1,16,0,50,50") ; Details -> Equalize Local Histograms
 	(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_equalize_local_histograms 75,2,4,100,8,1,16,0,50,50") ; Details -> Equalize Local Histograms
-	(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_freaky_details 2,10,1,11,0,50,50")                    ; Details -> Freaky Details
-	(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -gcd_sharpen_tones 1,128,0,0")                            ; Details -> Sharpen Tones
-	(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -gcd_sharpen_tones 1,128,0,0")                            ; Details -> Sharpen Tones
-	(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_color_presets 25,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,47,512,100,0,0,0,0,0,0,0,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0") ; Colors -> Color Presets -> Others -> Smooth Crome-Ish
+
+	(if (= preset 0)	
+		(begin
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_freaky_details 2,10,1,11,0,50,50")                    ; Details -> Freaky Details
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -gcd_sharpen_tones 1,128,0,0")                            ; Details -> Sharpen Tones
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -gcd_sharpen_tones 1,128,0,0")                            ; Details -> Sharpen Tones
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_color_presets 25,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,47,512,100,0,0,0,0,0,0,0,50,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0") ; Colors -> Color Presets -> Others -> Smooth Crome-Ish
+		)
+		(if (= preset 1) 
+		(begin
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_equalize_local_histograms 75,2,4,100,8,1,16,0,50,50") ; Details -> Equalize Local Histograms
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -gcd_sharpen_tones 1,128,0,0")                            ; Details -> Sharpen Tones
+			(plug-in-gmic-qt 1 theImage glowingeyesLayer 1 0 "-v - -fx_equalize_local_histograms 75,2,4,100,8,1,16,0,50,50") ; Details -> Equalize Local Histograms
+		))
+	)
 
 	(define glowingeyesLayerOverlay (car (gimp-layer-copy glowingeyesLayer TRUE )))
 	(gimp-image-insert-layer theImage glowingeyesLayerOverlay 0 0)
@@ -45,6 +57,7 @@
 	"*"
 	SF-IMAGE		"Image"     0
 	SF-DRAWABLE		"Drawable"  0
+	SF-OPTION   	_"Preset"	'("Blue/Green eyes" "Brown eyes")
 )
 
 (script-fu-menu-register "gestreift-script-fu-eye-glow"
