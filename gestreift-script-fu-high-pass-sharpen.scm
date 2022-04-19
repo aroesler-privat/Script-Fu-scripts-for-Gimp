@@ -52,7 +52,7 @@
 ) ;end define
 
 (script-fu-register "gestreift-script-fu-high-pass-sharpen"
-	_"Sharpen (and denoise) ..."
+	_"Sharpen (denoise) ..."
 	"This script ..."
 	"Andreas"
 	"andreas@gestreift.net"
