@@ -1,0 +1,8 @@
+#!/usr/bin/env gimp-script-fu-interpreter-3.0
+
+(load "modules/script-fu-gestreift-01-ignite.scm")
+(load "modules/script-fu-gestreift-02-temperature.scm")
+(load "modules/script-fu-gestreift-opt-lumimask.scm")
+(load "modules/script-fu-gestreift-opt-skinglow.scm")
+(load "modules/script-fu-gestreift-opt-vignette.scm")
+(load "modules/script-fu-gestreift-ZZ-sharpen.scm")
