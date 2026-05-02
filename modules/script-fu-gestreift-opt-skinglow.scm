@@ -34,7 +34,7 @@
 			(glow-layer (gimp-layer-new-from-visible image image "Skin Glow (Shadow & Lights)"))
 		)
 
-	  	(gimp-image-insert-layer image glow-group parent 0)
+	  	(gimp-image-insert-layer image glow-group 0 0)
 	  	(gimp-image-insert-layer image glow-layer glow-group -1)
 
 		(gimp-drawable-shadows-highlights glow-layer

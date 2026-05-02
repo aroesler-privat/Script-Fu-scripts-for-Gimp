@@ -47,7 +47,7 @@
 			(contrast-layer (gimp-layer-new-from-visible image image "Raise Contrast"))
 		)
 
-	  	(gimp-image-insert-layer image ignite-group parent 0)
+	  	(gimp-image-insert-layer image ignite-group 0 0)
 		(gimp-layer-set-mode ignite-group LAYER-MODE-SOFTLIGHT)
 
 		(gimp-image-insert-layer image contrast-layer ignite-group -1)

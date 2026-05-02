@@ -36,7 +36,7 @@
 			(temp-layer (gimp-layer-new-from-visible image image "Temperature Balance"))
 		)
 
-		(gimp-image-insert-layer image base-group parent -1)
+		(gimp-image-insert-layer image base-group 0 0)
 
 		(gimp-image-insert-layer image temp-layer base-group -1)
 		(plug-in-gmic-qt 1 image (vector temp-layer) 1 0 "gcd_temp_balance 0,0,1.208,0")

@@ -54,7 +54,7 @@
 		(lumi-group (gimp-group-layer-new image "Luminance Masks"))
 		)
 
-		(gimp-image-insert-layer image lumi-group parent 0)
+		(gimp-image-insert-layer image lumi-group 0 0)
         
 		(gimp-image-insert-layer image base-layer parent -1)
 		(gimp-image-insert-layer image lumi-layer parent -1)

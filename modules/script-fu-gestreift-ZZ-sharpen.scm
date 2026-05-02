@@ -33,7 +33,7 @@
 			(layerBase     (gimp-layer-new-from-visible image image "Sharpened"))
 		)
 
-		(gimp-image-insert-layer image layerBase parent position)
+		(gimp-image-insert-layer image layerBase 0 0)
 		(plug-in-gmic-qt 1 image (vector layerBase) 1 0 "fx_smooth_patch 6,6,3,5,0,1,1,0,0,24")
 		(plug-in-gmic-qt 1 image (vector layerBase) 1 0 "fx_unsharp_octave 5,5,2,0,0,1,24")
        	)
